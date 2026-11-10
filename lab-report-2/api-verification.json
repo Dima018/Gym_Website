@@ -1,0 +1,168 @@
+{
+  "date": "2026-11-10",
+  "tool": "HTTP requests during development (not a unit/API test suite)",
+  "results": [
+    {
+      "scenario": "Реєстрація",
+      "method": "POST",
+      "path": "/auth/register",
+      "status": 201
+    },
+    {
+      "scenario": "Другий користувач",
+      "method": "POST",
+      "path": "/auth/register",
+      "status": 201
+    },
+    {
+      "scenario": "Вхід адміністратора",
+      "method": "POST",
+      "path": "/auth/login",
+      "status": 200
+    },
+    {
+      "scenario": "Повторна пошта",
+      "method": "POST",
+      "path": "/auth/register",
+      "status": 409
+    },
+    {
+      "scenario": "Невірний пароль",
+      "method": "POST",
+      "path": "/auth/login",
+      "status": 401
+    },
+    {
+      "scenario": "Каталог",
+      "method": "GET",
+      "path": "/trainings",
+      "status": 200
+    },
+    {
+      "scenario": "Валідація ID",
+      "method": "GET",
+      "path": "/trainings/abc",
+      "status": 400
+    },
+    {
+      "scenario": "Відсутній ресурс",
+      "method": "GET",
+      "path": "/trainings/2147483647",
+      "status": 404
+    },
+    {
+      "scenario": "Без токена",
+      "method": "GET",
+      "path": "/bookings",
+      "status": 401
+    },
+    {
+      "scenario": "Заборона зміни каталогу учасником",
+      "method": "POST",
+      "path": "/trainings",
+      "status": 403
+    },
+    {
+      "scenario": "Некоректна ціна",
+      "method": "POST",
+      "path": "/trainings",
+      "status": 400
+    },
+    {
+      "scenario": "Створення тренування",
+      "method": "POST",
+      "path": "/trainings",
+      "status": 201
+    },
+    {
+      "scenario": "Читання тренування",
+      "method": "GET",
+      "path": "/trainings/7",
+      "status": 200
+    },
+    {
+      "scenario": "Редагування тренування",
+      "method": "PATCH",
+      "path": "/trainings/7",
+      "status": 200
+    },
+    {
+      "scenario": "Перевірка телефону",
+      "method": "POST",
+      "path": "/bookings",
+      "status": 400
+    },
+    {
+      "scenario": "Створення запису",
+      "method": "POST",
+      "path": "/bookings",
+      "status": 201
+    },
+    {
+      "scenario": "Захист від дублювання",
+      "method": "POST",
+      "path": "/bookings",
+      "status": 409
+    },
+    {
+      "scenario": "Читання запису",
+      "method": "GET",
+      "path": "/bookings/1",
+      "status": 200
+    },
+    {
+      "scenario": "Ізоляція чужого запису",
+      "method": "GET",
+      "path": "/bookings/1",
+      "status": 404
+    },
+    {
+      "scenario": "Заборона видалення чужого запису",
+      "method": "DELETE",
+      "path": "/bookings/1",
+      "status": 404
+    },
+    {
+      "scenario": "Заборона редагування чужого запису",
+      "method": "PATCH",
+      "path": "/bookings/1",
+      "status": 404
+    },
+    {
+      "scenario": "Збереження зв’язків FK",
+      "method": "DELETE",
+      "path": "/trainings/7",
+      "status": 409
+    },
+    {
+      "scenario": "Редагування запису",
+      "method": "PATCH",
+      "path": "/bookings/1",
+      "status": 200
+    },
+    {
+      "scenario": "Видалення запису",
+      "method": "DELETE",
+      "path": "/bookings/1",
+      "status": 204
+    },
+    {
+      "scenario": "Видалення тренування",
+      "method": "DELETE",
+      "path": "/trainings/7",
+      "status": 204
+    },
+    {
+      "scenario": "Відсутній після видалення",
+      "method": "GET",
+      "path": "/trainings/7",
+      "status": 404
+    },
+    {
+      "scenario": "Запис для демонстрації",
+      "method": "POST",
+      "path": "/bookings",
+      "status": 201
+    }
+  ]
+}

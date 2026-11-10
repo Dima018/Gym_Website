@@ -1,0 +1,326 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2026-11-10T12:00:00.000Z",
+  "__export_source": "ritm.lab2",
+  "resources": [
+    {
+      "_id": "wrk_ritm_lab2",
+      "_type": "workspace",
+      "name": "Ритм — КП №2",
+      "description": "REST API спортзалу",
+      "scope": "collection"
+    },
+    {
+      "_id": "env_ritm_lab2",
+      "_type": "environment",
+      "parentId": "wrk_ritm_lab2",
+      "name": "Base Environment",
+      "data": {
+        "base_url": "http://127.0.0.1:3000",
+        "token": "",
+        "admin_token": "",
+        "training_id": 1,
+        "booking_id": 1,
+        "email": "",
+        "password": "",
+        "session_date": "2026-11-20"
+      }
+    },
+    {
+      "_id": "req_ritm_01",
+      "_type": "request",
+      "parentId": "wrk_ritm_lab2",
+      "name": "01 · Каталог · 200",
+      "method": "GET",
+      "url": "{{ _.base_url }}/api/trainings",
+      "body": {},
+      "headers": [],
+      "authentication": {}
+    },
+    {
+      "_id": "req_ritm_02",
+      "_type": "request",
+      "parentId": "wrk_ritm_lab2",
+      "name": "02 · Реєстрація · 201",
+      "method": "POST",
+      "url": "{{ _.base_url }}/api/auth/register",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"Дмитро\",\n  \"email\": \"{{ _.email }}\",\n  \"password\": \"{{ _.password }}\"\n}"
+      },
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {}
+    },
+    {
+      "_id": "req_ritm_03",
+      "_type": "request",
+      "parentId": "wrk_ritm_lab2",
+      "name": "03 · Вхід · 200",
+      "method": "POST",
+      "url": "{{ _.base_url }}/api/auth/login",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"email\": \"{{ _.email }}\",\n  \"password\": \"{{ _.password }}\"\n}"
+      },
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {}
+    },
+    {
+      "_id": "req_ritm_04",
+      "_type": "request",
+      "parentId": "wrk_ritm_lab2",
+      "name": "04 · Профіль · 200",
+      "method": "GET",
+      "url": "{{ _.base_url }}/api/auth/me",
+      "body": {},
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      }
+    },
+    {
+      "_id": "req_ritm_05",
+      "_type": "request",
+      "parentId": "wrk_ritm_lab2",
+      "name": "05 · Створити тренування · 201",
+      "method": "POST",
+      "url": "{{ _.base_url }}/api/trainings",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"category_id\": 1,\n  \"name\": \"Функціональне тренування API\",\n  \"description\": \"Заняття для демонстрації CRUD у Insomnia.\",\n  \"duration_minutes\": 50,\n  \"price_cents\": 35000,\n  \"image\": \"personal.png\"\n}"
+      },
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.admin_token }}"
+      }
+    },
+    {
+      "_id": "req_ritm_06",
+      "_type": "request",
+      "parentId": "wrk_ritm_lab2",
+      "name": "06 · Оновити тренування · 200",
+      "method": "PATCH",
+      "url": "{{ _.base_url }}/api/trainings/{{ _.training_id }}",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"price_cents\": 36000\n}"
+      },
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.admin_token }}"
+      }
+    },
+    {
+      "_id": "req_ritm_07",
+      "_type": "request",
+      "parentId": "wrk_ritm_lab2",
+      "name": "07 · Створити запис · 201",
+      "method": "POST",
+      "url": "{{ _.base_url }}/api/bookings",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"training_id\": {{ _.training_id }},\n  \"session_date\": \"{{ _.session_date }}\",\n  \"phone\": \"+380671234567\",\n  \"note\": \"Запис через Insomnia\"\n}"
+      },
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      }
+    },
+    {
+      "_id": "req_ritm_08",
+      "_type": "request",
+      "parentId": "wrk_ritm_lab2",
+      "name": "08 · Мої записи · 200",
+      "method": "GET",
+      "url": "{{ _.base_url }}/api/bookings",
+      "body": {},
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      }
+    },
+    {
+      "_id": "req_ritm_09",
+      "_type": "request",
+      "parentId": "wrk_ritm_lab2",
+      "name": "09 · Оновити запис · 200",
+      "method": "PATCH",
+      "url": "{{ _.base_url }}/api/bookings/{{ _.booking_id }}",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"note\": \"Оновлено через Insomnia\"\n}"
+      },
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      }
+    },
+    {
+      "_id": "req_ritm_10",
+      "_type": "request",
+      "parentId": "wrk_ritm_lab2",
+      "name": "10 · Видалити запис · 204",
+      "method": "DELETE",
+      "url": "{{ _.base_url }}/api/bookings/{{ _.booking_id }}",
+      "body": {},
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      }
+    },
+    {
+      "_id": "req_ritm_11",
+      "_type": "request",
+      "parentId": "wrk_ritm_lab2",
+      "name": "11 · Видалити тренування · 204",
+      "method": "DELETE",
+      "url": "{{ _.base_url }}/api/trainings/{{ _.training_id }}",
+      "body": {},
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.admin_token }}"
+      }
+    },
+    {
+      "_id": "req_ritm_12",
+      "_type": "request",
+      "parentId": "wrk_ritm_lab2",
+      "name": "12 · Без токена · 401",
+      "method": "GET",
+      "url": "{{ _.base_url }}/api/bookings",
+      "body": {},
+      "headers": [],
+      "authentication": {}
+    },
+    {
+      "_id": "req_ritm_13",
+      "_type": "request",
+      "parentId": "wrk_ritm_lab2",
+      "name": "13 · Некоректна ціна · 400",
+      "method": "POST",
+      "url": "{{ _.base_url }}/api/trainings",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"category_id\": 1,\n  \"name\": \"Функціональне тренування API\",\n  \"description\": \"Заняття для демонстрації CRUD у Insomnia.\",\n  \"duration_minutes\": 50,\n  \"price_cents\": -1,\n  \"image\": \"personal.png\"\n}"
+      },
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.admin_token }}"
+      }
+    },
+    {
+      "_id": "req_ritm_14",
+      "_type": "request",
+      "parentId": "wrk_ritm_lab2",
+      "name": "14 · Немає доступу · 403",
+      "method": "POST",
+      "url": "{{ _.base_url }}/api/trainings",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"category_id\": 1,\n  \"name\": \"Функціональне тренування API\",\n  \"description\": \"Заняття для демонстрації CRUD у Insomnia.\",\n  \"duration_minutes\": 50,\n  \"price_cents\": 35000,\n  \"image\": \"personal.png\"\n}"
+      },
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      }
+    },
+    {
+      "_id": "req_ritm_15",
+      "_type": "request",
+      "parentId": "wrk_ritm_lab2",
+      "name": "15 · Не знайдено · 404",
+      "method": "GET",
+      "url": "{{ _.base_url }}/api/trainings/2147483647",
+      "body": {},
+      "headers": [],
+      "authentication": {}
+    },
+    {
+      "_id": "req_ritm_16",
+      "_type": "request",
+      "parentId": "wrk_ritm_lab2",
+      "name": "16 · Категорії · 200",
+      "method": "GET",
+      "url": "{{ _.base_url }}/api/categories",
+      "body": {},
+      "headers": [],
+      "authentication": {}
+    },
+    {
+      "_id": "req_ritm_17",
+      "_type": "request",
+      "parentId": "wrk_ritm_lab2",
+      "name": "17 · Одне тренування · 200",
+      "method": "GET",
+      "url": "{{ _.base_url }}/api/trainings/{{ _.training_id }}",
+      "body": {},
+      "headers": [],
+      "authentication": {}
+    },
+    {
+      "_id": "req_ritm_18",
+      "_type": "request",
+      "parentId": "wrk_ritm_lab2",
+      "name": "18 · Один запис · 200",
+      "method": "GET",
+      "url": "{{ _.base_url }}/api/bookings/{{ _.booking_id }}",
+      "body": {},
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.token }}"
+      }
+    }
+  ]
+}

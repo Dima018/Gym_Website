@@ -1,0 +1,195 @@
+{
+  "results": [
+    {
+      "browser": "Chromium",
+      "width": 390,
+      "file": "index.html",
+      "overflow": false,
+      "broken": false,
+      "error": false
+    },
+    {
+      "browser": "Chromium",
+      "width": 390,
+      "file": "trainings.html",
+      "overflow": false,
+      "broken": false,
+      "error": false
+    },
+    {
+      "browser": "Chromium",
+      "width": 390,
+      "file": "strength-training.html?id=1",
+      "overflow": false,
+      "broken": false,
+      "error": false
+    },
+    {
+      "browser": "Chromium",
+      "width": 390,
+      "file": "training-signup.html",
+      "overflow": false,
+      "broken": false,
+      "error": false
+    },
+    {
+      "browser": "Chromium",
+      "width": 390,
+      "file": "account.html",
+      "overflow": false,
+      "broken": false,
+      "error": false
+    },
+    {
+      "browser": "Chromium",
+      "width": 390,
+      "file": "about-gym.html",
+      "overflow": false,
+      "broken": false
+    },
+    {
+      "browser": "Chromium",
+      "width": 1440,
+      "file": "index.html",
+      "overflow": false,
+      "broken": false,
+      "error": false
+    },
+    {
+      "browser": "Chromium",
+      "width": 1440,
+      "file": "trainings.html",
+      "overflow": false,
+      "broken": false,
+      "error": false
+    },
+    {
+      "browser": "Chromium",
+      "width": 1440,
+      "file": "strength-training.html?id=1",
+      "overflow": false,
+      "broken": false,
+      "error": false
+    },
+    {
+      "browser": "Chromium",
+      "width": 1440,
+      "file": "training-signup.html",
+      "overflow": false,
+      "broken": false,
+      "error": false
+    },
+    {
+      "browser": "Chromium",
+      "width": 1440,
+      "file": "account.html",
+      "overflow": false,
+      "broken": false,
+      "error": false
+    },
+    {
+      "browser": "Chromium",
+      "width": 1440,
+      "file": "about-gym.html",
+      "overflow": false,
+      "broken": false
+    },
+    {
+      "browser": "Firefox",
+      "width": 390,
+      "file": "index.html",
+      "overflow": false,
+      "broken": false,
+      "error": false
+    },
+    {
+      "browser": "Firefox",
+      "width": 390,
+      "file": "trainings.html",
+      "overflow": false,
+      "broken": false,
+      "error": false
+    },
+    {
+      "browser": "Firefox",
+      "width": 390,
+      "file": "strength-training.html?id=1",
+      "overflow": false,
+      "broken": false,
+      "error": false
+    },
+    {
+      "browser": "Firefox",
+      "width": 390,
+      "file": "training-signup.html",
+      "overflow": false,
+      "broken": false,
+      "error": false
+    },
+    {
+      "browser": "Firefox",
+      "width": 390,
+      "file": "account.html",
+      "overflow": false,
+      "broken": false,
+      "error": false
+    },
+    {
+      "browser": "Firefox",
+      "width": 390,
+      "file": "about-gym.html",
+      "overflow": false,
+      "broken": false
+    },
+    {
+      "browser": "Firefox",
+      "width": 1440,
+      "file": "index.html",
+      "overflow": false,
+      "broken": false,
+      "error": false
+    },
+    {
+      "browser": "Firefox",
+      "width": 1440,
+      "file": "trainings.html",
+      "overflow": false,
+      "broken": false,
+      "error": false
+    },
+    {
+      "browser": "Firefox",
+      "width": 1440,
+      "file": "strength-training.html?id=1",
+      "overflow": false,
+      "broken": false,
+      "error": false
+    },
+    {
+      "browser": "Firefox",
+      "width": 1440,
+      "file": "training-signup.html",
+      "overflow": false,
+      "broken": false,
+      "error": false
+    },
+    {
+      "browser": "Firefox",
+      "width": 1440,
+      "file": "account.html",
+      "overflow": false,
+      "broken": false,
+      "error": false
+    },
+    {
+      "browser": "Firefox",
+      "width": 1440,
+      "file": "about-gym.html",
+      "overflow": false,
+      "broken": false
+    }
+  ],
+  "login": true,
+  "networkErrorAndRetry": true,
+  "admin": true
+}
