@@ -1,0 +1,41 @@
+Project Ritm {
+  database_type: 'PostgreSQL'
+  Note: 'КП №2 · Суворов Дмитро · ЦІ-31'
+}
+Table users [headercolor: #315D78] {
+  id integer [pk, increment]
+  name varchar(80) [not null]
+  email varchar(254) [not null, unique, note: 'lowercase']
+  password_hash text [not null, note: 'bcrypt, cost 12']
+  role varchar(10) [not null, default: 'member', note: 'member | admin']
+  created_at timestamptz [not null, default: `now()`]
+}
+Table categories [headercolor: #315D78] {
+  id integer [pk, increment]
+  name varchar(80) [not null, unique]
+}
+Table trainings [headercolor: #315D78] {
+  id integer [pk, increment]
+  category_id integer [not null]
+  name varchar(100) [not null, unique]
+  description text [not null]
+  duration_minutes integer [not null, note: '15..240']
+  price_cents integer [not null, note: '0..1000000, копійки']
+  image varchar(30) [not null, note: 'дозволене ім’я PNG']
+  created_at timestamptz [not null, default: `now()`]
+}
+Table bookings [headercolor: #315D78] {
+  id integer [pk, increment]
+  user_id integer [not null]
+  training_id integer [not null]
+  session_date date [not null]
+  phone varchar(13) [not null, note: '+380 та 9 цифр']
+  note varchar(300) [not null, default: '']
+  created_at timestamptz [not null, default: `now()`]
+  indexes {
+    (user_id, training_id, session_date) [unique]
+  }
+}
+Ref: trainings.category_id > categories.id [delete: restrict]
+Ref: bookings.user_id > users.id [delete: restrict]
+Ref: bookings.training_id > trainings.id [delete: restrict]

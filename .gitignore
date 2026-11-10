@@ -1,0 +1,8 @@
+node_modules/
+.env
+.env.*
+!.env.example
+*.log
+lab-report-2/*.aux
+lab-report-2/*.out
+lab-report-2/*.toc
