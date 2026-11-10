@@ -1,0 +1,259 @@
+% !TeX program = xelatex
+% Звіт з комп'ютерного практикуму №1, Київ, 2026.
+% Компіляція: xelatex -interaction=nonstopmode -halt-on-error report.tex (двічі)
+% Скріншоти зберігаються у page-screenshots/Desktop та page-screenshots/Mobile.
+\documentclass[12pt,a4paper]{article}
+\usepackage[ukrainian]{babel}
+\usepackage{fontspec}
+\setmainfont{Liberation Serif}
+\setsansfont{Noto Sans}
+\setmonofont{DejaVu Sans Mono}[Scale=0.84]
+\usepackage[a4paper,left=23mm,right=22mm,top=23mm,bottom=24mm]{geometry}
+\usepackage{microtype}
+\usepackage{setspace}
+\setstretch{1.17}
+\setlength{\emergencystretch}{3em}
+\usepackage{graphicx}
+\usepackage{array,longtable,tabularx,booktabs}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{tikz}
+\usepackage{float}
+\usepackage{caption}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{lastpage}
+\usepackage{needspace}
+\usepackage{ragged2e}
+
+\newcommand{\AuthorName}{Суворов Дмитро}
+\newcommand{\StudentGroup}{ЦІ-31}
+\newcommand{\ProjectRepo}{\url{https://github.com/Dima018/Gym_Website}}
+\newcommand{\ProjectBoard}{\url{https://github.com/users/Dima018/projects/13}}
+
+\definecolor{forest}{HTML}{233C30}
+\definecolor{sage}{HTML}{5B7957}
+\definecolor{mist}{HTML}{F0F4EE}
+\definecolor{rulegray}{HTML}{D9E1DA}
+\hypersetup{hypertexnames=false,colorlinks=true,linkcolor=forest,urlcolor=sage,pdftitle={Звіт КП №1 — сайт спортзалу Ритм},pdfauthor={Суворов Дмитро}}
+\titleformat{\section}{\Large\sffamily\bfseries\color{forest}}{\thesection.}{0.6em}{}
+\titleformat{\subsection}{\large\sffamily\bfseries\color{forest}}{\thesubsection.}{0.6em}{}
+\titlespacing*{\section}{0pt}{15pt}{9pt}
+\titlespacing*{\subsection}{0pt}{12pt}{6pt}
+\captionsetup{font=small,labelfont={bf,color=forest},justification=centering}
+\setlist[itemize]{leftmargin=1.45em,itemsep=2pt,topsep=4pt}
+\setlist[enumerate]{leftmargin=1.55em,itemsep=2pt,topsep=4pt}
+\renewcommand{\arraystretch}{1.20}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\sffamily\color{sage} КП №1 · WEB-орієнтовані системи}
+\fancyhead[R]{\small\sffamily\color{sage} Ритм}
+\fancyfoot[L]{\footnotesize\color{sage} \AuthorName\ · 2026}
+\fancyfoot[R]{\footnotesize\color{sage} \thepage\,/\,\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{rulegray}\leaders\hrule height \headrulewidth\hfill}}
+\setlength{\headheight}{26pt}
+\newtcolorbox{infobox}{colback=mist,colframe=rulegray,boxrule=0.5pt,arc=2mm,left=3mm,right=3mm,top=2mm,bottom=2mm}
+\newcommand{\file}[1]{\texttt{#1}}
+\newcommand{\evidencehead}[2]{%
+  \clearpage\subsection*{#1 --- #2}\addcontentsline{toc}{subsection}{#1 --- #2}
+}
+\newcommand{\deskimage}[2]{%
+ \begin{center}\includegraphics[width=\linewidth,height=10.1cm,keepaspectratio]{page-screenshots/#1}\par\vspace{2pt}{\footnotesize\color{sage} #2}\end{center}
+}
+\newcommand{\mobileimage}[2]{%
+ \begin{minipage}[t]{0.480\linewidth}\centering
+ \fcolorbox{rulegray}{white}{\includegraphics[width=0.96\linewidth,height=18.4cm,keepaspectratio]{page-screenshots/#1}}\par\smallskip{\footnotesize\color{sage}#2}\end{minipage}
+}
+\begin{document}
+\begin{titlepage}
+\thispagestyle{empty}
+\begin{center}
+{\small\sffamily\bfseries МІНІСТЕРСТВО ОСВІТИ І НАУКИ УКРАЇНИ}\par\vspace{5mm}
+{\small\sffamily\bfseries НАЦІОНАЛЬНИЙ ТЕХНІЧНИЙ УНІВЕРСИТЕТ УКРАЇНИ}\par
+{\small\sffamily\bfseries «КИЇВСЬКИЙ ПОЛІТЕХНІЧНИЙ ІНСТИТУТ ІМЕНІ ІГОРЯ СІКОРСЬКОГО»}\par
+\vspace{25mm}
+{\color{sage}\rule{38mm}{1.8pt}}\par\vspace{8mm}
+{\LARGE\sffamily\bfseries\color{forest} ЗВІТ}\par\vspace{5mm}
+{\Large\sffamily Комп'ютерний практикум №1}\par\vspace{3mm}
+{\large «Розробка простого веб-сайту зі стилізацією. HTML. CSS.»}\par\vspace{11mm}
+{\large з дисципліни}\par\vspace{1mm}
+{\large\bfseries «Технології розробки WEB-орієнтованих систем»}\par\vspace{12mm}
+\begin{tcolorbox}[width=0.87\textwidth,colback=mist,colframe=rulegray,arc=2mm,boxrule=0.7pt]
+\centering{\large\sffamily\bfseries\color{forest} Тема №69: «Спортзал»}\par\smallskip
+{\normalsize Навчальний веб-сайт спортзалу «Ритм»}
+\end{tcolorbox}
+\vfill
+\begin{flushright}
+\begin{tabular}{@{}rl@{}}
+Виконавець: & \textbf{\AuthorName}\\
+Група: & \StudentGroup\\
+Викладач: & С. В. Суліма\\
+\end{tabular}
+\end{flushright}
+\vfill
+{\large Київ --- 2026}
+\end{center}
+\end{titlepage}
+
+\tableofcontents
+\clearpage
+
+\section{Тема, мета та завдання}
+\textbf{Тема:} багатосторінковий веб-сайт спортивного залу «Ритм» (тема №69).
+
+\textbf{Мета:} набути практичних навичок розроблення семантичної HTML5-розмітки, оформлення сторінок засобами CSS3, створення адаптивного інтерфейсу та використання вбудованої перевірки HTML-форм. Робота відповідає першому етапу наскрізного веб-проєкту, без серверної частини та бази даних.
+
+\textbf{Основні завдання:}
+\begin{enumerate}
+\item Спроєктувати структуру сайту та ескізи основних сторінок.
+\item Реалізувати п'ять взаємопов'язаних HTML-сторінок зі спільною навігацією.
+\item Стилізувати інтерфейс за допомогою CSS, Flexbox та Grid.
+\item Забезпечити адаптивне відображення на настільних і мобільних екранах.
+\item Створити навчальну форму запису з браузерною валідацією.
+\item Підготувати скриншоти й матеріали для перевірки виконаної роботи.
+\end{enumerate}
+
+\section{Авторство та організація роботи}
+\noindent\begin{tabularx}{\textwidth}{>{\bfseries}p{38mm}X}
+\toprule
+Виконавець & \AuthorName\\
+Профіль GitHub & \href{https://github.com/Dima018}{github.com/Dima018}\\
+Група & \StudentGroup\\
+Склад бригади & Суворов Дмитро\\
+Розподіл ролей & \AuthorName: розроблення сайту, перевірка та підготовка звіту\\
+\bottomrule
+\end{tabularx}
+
+\section{Структура веб-сайту}
+Сайт містить п'ять сторінок, які пов'язані спільним меню, а також посиланнями між картками тренувань, сторінкою детального опису та формою запису.
+
+\begin{center}
+\begin{tikzpicture}[node distance=9mm and 10mm, every node/.style={font=\small\sffamily}, card/.style={draw=rulegray,fill=mist,rounded corners=2mm,align=center,minimum height=10mm,inner sep=3mm}]
+\node[card] (home) at (0,0) {Головна\\\texttt{index.html}};
+\node[card] (train) at (-4,-2) {Каталог тренувань\\\texttt{trainings.html}};
+\node[card] (about) at (0,-2) {Про спортзал\\\texttt{about-gym.html}};
+\node[card] (sign) at (4,-2) {Форма запису\\\texttt{training-signup.html}};
+\node[card] (strength) at (-4,-4) {Силове тренування\\\texttt{strength-training.html}};
+\draw[->,thick,sage] (home) -- (train);
+\draw[->,thick,sage] (home) -- (about);
+\draw[->,thick,sage] (home) -- (sign);
+\draw[->,thick,sage] (train) -- (strength);
+\draw[->,thick,sage] (train) -- (sign);
+\draw[->,thick,sage] (strength) -- (sign);
+\end{tikzpicture}
+\captionof{figure}{Карта сторінок сайту «Ритм» (основні переходи)}
+\end{center}
+
+\noindent\begin{tabularx}{\textwidth}{>{\ttfamily\small}p{49mm}X}
+\toprule
+\multicolumn{1}{l}{\textbf{Файл}} & \textbf{Призначення}\\
+\midrule
+index.html & Головна сторінка, презентація залу та переваг\\
+trainings.html & Каталог шести напрямів тренувань із цінами\\
+strength-training.html & Детальний опис силового заняття, програма й розклад\\
+about-gym.html & Інформація про зал, контакти й години роботи\\
+training-signup.html & Форма запису з HTML5-перевіркою полів\\
+styles/main.css & Спільний дизайн та правила адаптивності\\
+assets/ & Ілюстрації та графічні матеріали\\
+assets/logo.png & Логотип спортзалу «Ритм»\\
+\bottomrule
+\end{tabularx}
+
+\section{Реалізація веб-сайту}
+\subsection{HTML5 та семантична структура}
+Сторінки мають заголовок документа, метадані, область навігації, основний вміст і підвал. Для цього використано елементи \file{header}, \file{nav}, \file{main}, \file{section}, \file{article} та \file{footer}. Інформаційні блоки відокремлено логічно, сторінки мають виразний заголовок першого рівня. Для доступності передбачено альтернативні підписи \file{alt} для зображень, підписи \file{label} для полів форми та посилання для переходу до основного вмісту.
+
+\subsection{Оформлення та компонування}
+Інтерфейс має світлий фон, темно-зелену кольорову гаму, контрастні кнопки та картки. Основні технічні рішення наведено в таблиці~\ref{tab:css}.
+\begin{table}[H]
+\centering
+\caption{Ключові прийоми стилізації}\label{tab:css}
+\noindent\begin{tabularx}{\textwidth}{>{\bfseries}p{40mm}X}
+\toprule
+Прийом & Застосування\\
+\midrule
+CSS Grid & Три картки каталогу в рядку, двоколонкові інформаційні секції\\
+Flexbox & Навігація, кнопкові блоки та взаємне вирівнювання елементів\\
+Media queries & Зміна компонування на ширинах 900 і 600 пікселів\\
+Відносні розміри & Контейнер із максимальною шириною та гнучкі зображення\\
+Графіка та шрифти & Оптимізовані локальні зображення та системний стек шрифтів\\
+Псевдокласи & Стани наведення, клавіатурного фокусу й цільового блока\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Адаптивний дизайн}
+За великої ширини в каталозі відображено три картки в ряд; на проміжних екранах --- дві, а на вузьких --- одну. Двоколонкові блоки головної сторінки, опису тренування, контактів та форми на мобільних пристроях переходять до вертикального розташування. Меню переноситься на наступний рядок замість горизонтального переповнення. На зображеннях у розділі~\ref{sec:screenshots} показано обидва режими.
+
+\subsection{Навчальна форма запису}
+Сторінка \file{training-signup.html} включає поля імені, електронної пошти, телефону, напряму занять, довільного коментаря та підтвердження ознайомлення з навчальним характером форми. Для перевірки використано стандартні можливості HTML5: атрибути \file{required}, \file{minlength}, \file{maxlength}, \file{pattern} та \file{type="email"}. Поле телефону приймає формат \file{+380} і дев'ять цифр. Після успішної локальної перевірки відкривається блок результату через CSS \file{:target}.
+
+Форма \textbf{не передає дані на сервер} й не створює реального запису на тренування, що відповідає статичному етапу практикуму №1.
+
+\section{Перевірка результатів}
+Для фінальної версії виконано локальну перевірку верстки в Chromium на ширинах 320, 390, 768 та 1440 пікселів. Сторінки відкривалися через локальний HTTP-сервер; перевірено завантаження зображень і відносні шляхи до ресурсів. Для 20 перевірених варіантів не виявлено горизонтального переповнення, а всі ілюстрації завантажилися. Кожна сторінка має один заголовок \file{h1}. Скріншоти фінальної версії демонструють компонування елементів на настільному та мобільному екранах.
+
+\noindent\begin{tabularx}{\textwidth}{>{\bfseries}p{48mm}X}
+\toprule
+Перевірка & Результат / обмеження\\
+\midrule
+Відображення сторінок & Представлені desktop та mobile скриншоти для усіх п'яти сторінок\\
+Верстка у Chromium & Локальна перевірка Chromium: 5 сторінок, 4 ширини, без горизонтального переповнення\\
+HTML5-форма & Наявні обов'язкові поля, перевірка email і шаблону телефону\\
+W3C HTML/CSS & Офіційний результат валідаторів не наданий; не позначається як виконаний\\
+Публікація коду & Посилання на GitHub-репозиторій наведено у розділі «Посилання та матеріали»\\
+Дошка задач & Посилання на GitHub Projects наведено у розділі «Посилання та матеріали»\\
+\bottomrule
+\end{tabularx}
+
+\section{Скріншоти веб-сайту}\label{sec:screenshots}
+Нижче наведено скриншоти фінальної версії сайту з логотипом, зроблені в Chromium на настільних і мобільних розмірах екрана. Зображення взято з папки \file{page-screenshots}. Кожна сторінка представлена обома варіантами відображення.
+
+\evidencehead{Головна сторінка}{desktop}
+\deskimage{Desktop/Головна1.png}{Верхня частина: навігація, вступний блок, ілюстрація}
+\deskimage{Desktop/Головна2.png}{Нижня частина: переваги, інформаційний банер, підвал}
+\evidencehead{Головна сторінка}{mobile}
+\noindent\mobileimage{Mobile/Головна1.png}{Верхня частина}\hfill\mobileimage{Mobile/Головна2.png}{Нижня частина}
+
+\evidencehead{Каталог тренувань}{desktop}
+\deskimage{Desktop/Тренування1.png}{Перші картки каталогу}
+\deskimage{Desktop/Тренування2.png}{Другий ряд карток: бокс, стретчинг та персональне тренування}
+\evidencehead{Каталог тренувань}{mobile}
+\noindent\mobileimage{Mobile/Тренування1.png}{Верхня частина каталогу}\hfill\mobileimage{Mobile/Тренування2.png}{Нижня частина каталогу}
+
+\evidencehead{Силове тренування}{desktop}
+\deskimage{Desktop/Силове_тренування1.png}{Заголовок, ілюстрація та інформація про заняття}
+\deskimage{Desktop/Силове_тренування2.png}{Програма заняття, необхідні речі та розклад}
+\evidencehead{Силове тренування}{mobile}
+\noindent\mobileimage{Mobile/Силове_тренування1.png}{Верхня частина}\hfill\mobileimage{Mobile/Силове_тренування2.png}{Нижня частина}
+
+\evidencehead{Сторінка «Про нас»}{desktop}
+\deskimage{Desktop/Про_нас1.png}{Опис спортивного залу та контактна інформація}
+\evidencehead{Сторінка «Про нас»}{mobile}
+\noindent\mobileimage{Mobile/Про_нас1.png}{Вступ і опис}\hfill\mobileimage{Mobile/Про_нас2.png}{Контакти та графік роботи}
+
+\evidencehead{Форма запису}{desktop}
+\deskimage{Desktop/Запис1.png}{Основні поля форми та навчальні пояснення}
+\deskimage{Desktop/Запис2.png}{Нижня частина форми та кнопка перевірки}
+\evidencehead{Форма запису}{mobile}
+\noindent\mobileimage{Mobile/Запис1.png}{Поля для контактних даних}\hfill\mobileimage{Mobile/Запис2.png}{Напрям тренувань, коментар і підтвердження}
+
+\clearpage
+\section{Висновки}
+У ході комп'ютерного практикуму №1 створено багатосторінковий статичний веб-сайт «Ритм» для презентації спортивного залу. Реалізовано п'ять HTML5-сторінок зі спільним меню, каталогом шести напрямів тренувань, детальною інформацією про силове заняття, контактною сторінкою та навчальною формою запису. Єдине CSS-оформлення забезпечує адаптивне розташування елементів, а вбудовані механізми HTML5 --- базову перевірку введених даних.
+
+Скріншоти підтверджують оформлення настільних і мобільних версій усіх сторінок. Виконано локальну перевірку верстки для чотирьох ширин екрана та валідації навчальної форми. Посилання на репозиторій і дошку задач наведено нижче.
+
+\section{Посилання та матеріали}
+\begin{enumerate}
+\item \textbf{Git-репозиторій:} \ProjectRepo
+\item \textbf{Профіль автора:} \href{https://github.com/Dima018}{github.com/Dima018}.
+\item \textbf{Дошка задач:} \ProjectBoard
+\item \textbf{Методичні вказівки:} С.~В.~Суліма, «Методичні вказівки до комп'ютерних практикумів з дисципліни ``Технології розробки WEB-орієнтованих систем''», КПІ ім. Ігоря Сікорського, 2026.
+\item \textbf{Локальні матеріали:} файл README, HTML-сторінки, CSS, графічні матеріали та скриншоти сторінок.
+\end{enumerate}
+\end{document}

@@ -1,0 +1,428 @@
+/* Спільні стилі для всіх сторінок. */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f8f9f5;
+  color: #23362b;
+  font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  line-height: 1.65;
+}
+
+.container {
+  width: 90%;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+a {
+  color: #315e3b;
+  text-underline-offset: 4px;
+}
+
+a:hover {
+  color: #182e1d;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+h1, h2, h3 {
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 44px;
+  margin: 12px 0 24px;
+  letter-spacing: -1.5px;
+}
+
+h2 {
+  font-size: 28px;
+  margin: 0 0 20px;
+}
+
+h3 {
+  font-size: 21px;
+}
+
+p {
+  margin: 0 0 18px;
+}
+
+section {
+  padding: 48px 0;
+}
+
+li {
+  margin-bottom: 10px;
+}
+
+header {
+  background: #fff;
+  border-bottom: 1px solid #dce2d9;
+}
+
+.header-row, .footer-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px 0;
+}
+
+.logo {
+  font-size: 32px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #23362b;
+  white-space: nowrap;
+}
+
+.logo img {
+  display: block;
+  width: 176px;
+  height: auto;
+}
+
+footer .logo img {
+  width: 120px;
+}
+
+.site-author {
+  white-space: nowrap;
+}
+
+.site-author a {
+  color: inherit;
+}
+
+
+nav {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: #23362b;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+nav a:hover, nav a[aria-current="page"] {
+  text-decoration: underline;
+}
+
+.eyebrow {
+  color: #526b4d;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.lead {
+  max-width: 720px;
+  font-size: 18px;
+  color: #526054;
+}
+
+.button {
+  display: inline-block;
+  background: #263f30;
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  padding: 14px 22px;
+  font: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: #406347;
+  color: #fff;
+}
+
+.text-link {
+  display: inline-block;
+  margin: 20px 0 0 16px;
+}
+
+/* Дві колонки у великому блоці та на сторінці тренування. */
+.hero, .two-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.hero {
+  align-items: center;
+  padding: 72px 0;
+}
+
+.hero h1 {
+  font-size: 58px;
+}
+
+.hero-picture {
+  background: #e8eee5;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.hero-picture p {
+  padding: 0 24px 20px;
+  text-align: center;
+}
+
+.detail {
+  margin-top: 32px;
+  align-items: center;
+}
+
+.rounded {
+  border-radius: 12px;
+}
+
+/* Grid розкладає картки у три стовпчики. */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.card {
+  padding: 28px;
+  background: #fff;
+  border: 1px solid #dce2d9;
+  border-radius: 10px;
+}
+
+.number {
+  font-size: 28px;
+  color: #658151;
+}
+
+.training-card {
+  overflow: hidden;
+  padding: 0;
+}
+
+.card-body {
+  padding: 24px;
+}
+
+.training-card h2 {
+  font-size: 23px;
+}
+
+.price {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.price span {
+  font-size: 14px;
+  font-weight: normal;
+  color: #526054;
+}
+
+.banner {
+  background: #e8eee5;
+  border-radius: 12px;
+  padding: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 32px 0 64px;
+}
+
+.banner p {
+  margin-bottom: 0;
+}
+
+address {
+  font-style: normal;
+  margin-bottom: 20px;
+  overflow-wrap: anywhere;
+}
+
+.muted, small {
+  color: #526054;
+  font-size: 14px;
+}
+
+/* Кожен підпис стоїть над своїм полем. */
+form {
+  background: #fff;
+  padding: 28px;
+  border: 1px solid #dce2d9;
+  border-radius: 10px;
+}
+
+label {
+  display: block;
+  margin: 18px 0 6px;
+}
+
+label:first-child {
+  margin-top: 0;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #84927f;
+  border-radius: 5px;
+  background: #fff;
+  color: #23362b;
+  font: inherit;
+}
+
+textarea {
+  resize: vertical;
+}
+
+.checkbox {
+  display: flex;
+  align-items: start;
+  gap: 10px;
+  margin: 22px 0;
+}
+
+.checkbox input {
+  width: 18px;
+  height: 18px;
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+
+:focus-visible {
+  outline: 3px solid #607c24;
+  outline-offset: 4px;
+}
+
+.result {
+  display: none;
+  margin-top: 32px;
+  padding: 28px;
+  background: #e8eee5;
+  border-radius: 10px;
+}
+
+.result:target {
+  display: block;
+}
+
+footer {
+  margin-top: 32px;
+  border-top: 1px solid #dce2d9;
+  font-size: 13px;
+}
+
+footer p {
+  margin: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 10px;
+  background: white;
+  padding: 12px;
+}
+
+.skip-link:focus {
+  top: 10px;
+}
+
+/* На планшеті залишаємо дві картки в рядку. */
+@media (max-width: 900px) {
+  .header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero, .two-columns {
+    gap: 24px;
+  }
+
+  .hero h1 {
+    font-size: 44px;
+  }
+
+  .banner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+}
+
+/* На телефоні всі блоки йдуть один під одним. */
+@media (max-width: 600px) {
+  .grid, .hero, .two-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    padding: 40px 0;
+  }
+
+  h1, .hero h1 {
+    font-size: 36px;
+  }
+
+  h2 {
+    font-size: 26px;
+  }
+
+  section {
+    padding: 30px 0;
+  }
+
+  nav {
+    gap: 12px 16px;
+  }
+
+  .footer-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  form, .card-body, .card {
+    padding: 22px;
+  }
+
+  .training-card {
+    padding: 0;
+  }
+
+  .text-link {
+    margin-left: 0;
+    display: block;
+  }
+
+}
+
+/* Авторство й компактний підвал у різних розмірах екрана. */
+.footer-row { flex-wrap: wrap; gap: 10px 20px; }
+@media (max-width: 360px) {
+  .logo img { width: 155px; }
+  .footer-row p { overflow-wrap: anywhere; }
+}

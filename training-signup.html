@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8">
+    <meta name="author" content="Суворов Дмитро">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Ритм — навчальний сайт спортзалу. Тренування, інформація про клуб і форма запису." name="description">
+    <title>Запис на тренування — Ритм</title>
+    <link href="styles/main.css" rel="stylesheet">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Перейти до змісту</a>
+    <!-- Це меню повторюється на всіх сторінках. -->
+    <header>
+      <div class="container header-row">
+        <a class="logo" href="index.html" aria-label="Ритм — головна сторінка">
+          <img src="assets/logo.png" alt="Ритм — спортзал" width="600" height="171">
+        </a>
+        <nav aria-label="Головна навігація">
+          <a href="index.html">Головна</a>
+          <a href="trainings.html">Тренування</a>
+          <a href="strength-training.html">Силове тренування</a>
+          <a href="about-gym.html">Про нас</a>
+          <a aria-current="page" href="training-signup.html">Записатися</a>
+        </nav>
+      </div>
+    </header>
+    <main class="container" id="main">
+      <section>
+        <p class="eyebrow">ПЕРШИЙ КРОК</p>
+        <h1>Запис на тренування</h1>
+        <p class="lead">Обери напрям та заповни форму. Поля зі зірочкою обов’язкові.</p>
+        <div class="two-columns">
+          <!-- Браузер сам перевіряє required, email, pattern і довжину тексту. -->
+          <!-- Поля без name: навчальна форма не додає особисті дані до адреси. -->
+          <form action="training-signup.html#result" method="get">
+            <label for="name">Ім’я *</label>
+            <input autocomplete="given-name" id="name" maxlength="40" minlength="2" pattern=".*[^\s].*" placeholder="Наприклад, Дмитро" required type="text">
+            <label for="email">Електронна пошта *</label>
+            <input autocomplete="email" id="email" maxlength="80" placeholder="name@example.com" required type="email">
+            <label for="phone">Телефон *</label>
+            <input aria-describedby="phone-help" autocomplete="tel" id="phone" maxlength="13" minlength="13" pattern="\+380[0-9]{9}" placeholder="+380671234567" required type="tel">
+            <small id="phone-help">Формат: +380 та 9 цифр, без пробілів.</small>
+            <label for="training">Напрям *</label>
+            <select id="training" required>
+              <option value="">Обери тренування</option>
+              <option>Силове тренування</option>
+              <option>Кардіо</option>
+              <option>Йога</option>
+              <option>Бокс</option>
+              <option>Стретчинг</option>
+              <option>Персональне заняття</option>
+            </select>
+            <label for="comment">Коментар</label>
+            <textarea id="comment" maxlength="300" placeholder="Наприклад, хочу прийти вперше" rows="4"></textarea>
+            <label class="checkbox">
+              <input required type="checkbox">
+              Розумію, що це навчальна форма *
+            </label>
+            <button class="button" type="submit">Перевірити форму →</button>
+          </form>
+          <aside class="card">
+            <h2>Перед першим заняттям</h2>
+            <p>Візьми спортивний одяг, змінне взуття та воду. Приходь за 10 хвилин до початку, щоб встигнути перевдягнутися.</p>
+            <h3>Навчальний приклад</h3>
+            <p>Форма показує перевірку полів засобами HTML5. Дані не зберігаються і не надсилаються адміністратору.</p>
+          </aside>
+        </div>
+        <!-- :target показує цей блок після переходу за якорем. -->
+        <div class="result" id="result" tabindex="-1">
+          <h2>Перевірку пройдено</h2>
+          <p>Демонстрацію завершено. Реальний запис не створено.</p>
+          <a href="training-signup.html">Заповнити ще раз</a>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="container footer-row">
+        <a class="logo" href="index.html" aria-label="Ритм — головна сторінка">
+          <img src="assets/logo.png" alt="Ритм — спортзал" width="600" height="171">
+        </a>
+        <p>Рухайся у своєму темпі.</p>
+        <p>Навчальний проєкт · 2026 · Усі дані клубу вигадані.</p>
+        <p class="site-author">Автор: <a href="https://github.com/Dima018" rel="noopener noreferrer">Суворов Дмитро</a></p>
+      </div>
+    </footer>
+  </body>
+</html>
