@@ -1,7 +1,3 @@
-% !TeX program = xelatex
-% Звіт з комп'ютерного практикуму №1, Київ, 2026.
-% Компіляція: xelatex -interaction=nonstopmode -halt-on-error report.tex (двічі)
-% Скріншоти зберігаються у page-screenshots/Desktop та page-screenshots/Mobile.
 \documentclass[12pt,a4paper]{article}
 \usepackage{iftex}
 \ifPDFTeX
@@ -20,6 +16,7 @@
 \setstretch{1.17}
 \setlength{\emergencystretch}{3em}
 \usepackage{graphicx}
+\graphicspath{{./}{page-screenshots/}{page-screenshots/Desktop/}{page-screenshots/Mobile/}{Desktop/}{Mobile/}}
 \usepackage{array,longtable,tabularx,booktabs}
 \usepackage{enumitem}
 \usepackage{xcolor}
@@ -68,11 +65,11 @@
   \clearpage\subsection*{#1 --- #2}\phantomsection\addcontentsline{toc}{subsection}{#1 --- #2}
 }
 \newcommand{\deskimage}[2]{%
- \begin{center}\includegraphics[width=\linewidth,height=10.1cm,keepaspectratio]{page-screenshots/#1}\par\vspace{2pt}{\footnotesize\color{sage} #2}\end{center}
+ \begin{center}\includegraphics[width=\linewidth,height=10.1cm,keepaspectratio]{#1}\par\vspace{2pt}{\footnotesize\color{sage} #2}\end{center}
 }
 \newcommand{\mobileimage}[2]{%
  \begin{minipage}[t]{0.480\linewidth}\centering
- \fcolorbox{rulegray}{white}{\includegraphics[width=0.96\linewidth,height=18.4cm,keepaspectratio]{page-screenshots/#1}}\par\smallskip{\footnotesize\color{sage}#2}\end{minipage}
+ \fcolorbox{rulegray}{white}{\includegraphics[width=0.96\linewidth,height=18.4cm,keepaspectratio]{#1}}\par\smallskip{\footnotesize\color{sage}#2}\end{minipage}
 }
 \begin{document}
 \begin{titlepage}
@@ -217,36 +214,36 @@ W3C HTML/CSS & Офіційний результат валідаторів не
 \end{tabularx}
 
 \section{Скріншоти веб-сайту}\label{sec:screenshots}
-Нижче наведено скриншоти фінальної версії сайту з логотипом, зроблені в Chromium на настільних і мобільних розмірах екрана. Зображення взято з папки \file{page-screenshots}. Кожна сторінка представлена обома варіантами відображення.
+Нижче наведено скриншоти фінальної версії сайту з логотипом, зроблені в Chromium на настільних і мобільних розмірах екрана. Кожна сторінка представлена обома варіантами відображення.
 
 \evidencehead{Головна сторінка}{desktop}
-\deskimage{Desktop/dHome1.png}{Верхня частина: навігація, вступний блок, ілюстрація}
-\deskimage{Desktop/dHome2.png}{Нижня частина: переваги, інформаційний банер, підвал}
+\deskimage{dHome1.png}{Верхня частина: навігація, вступний блок, ілюстрація}
+\deskimage{dHome2.png}{Нижня частина: переваги, інформаційний банер, підвал}
 \evidencehead{Головна сторінка}{mobile}
-\noindent\mobileimage{Mobile/mHome1.png}{Верхня частина}\hfill\mobileimage{Mobile/mHome2.png}{Нижня частина}
+\noindent\mobileimage{mHome1.png}{Верхня частина}\hfill\mobileimage{mHome2.png}{Нижня частина}
 
 \evidencehead{Каталог тренувань}{desktop}
-\deskimage{Desktop/dTrainings1.png}{Перші картки каталогу}
-\deskimage{Desktop/dTrainings2.png}{Другий ряд карток: бокс, стретчинг та персональне тренування}
+\deskimage{dTrainings1.png}{Перші картки каталогу}
+\deskimage{dTrainings2.png}{Другий ряд карток: бокс, стретчинг та персональне тренування}
 \evidencehead{Каталог тренувань}{mobile}
-\noindent\mobileimage{Mobile/mTrainings1.png}{Верхня частина каталогу}\hfill\mobileimage{Mobile/mTrainings2.png}{Нижня частина каталогу}
+\noindent\mobileimage{mTrainings1.png}{Верхня частина каталогу}\hfill\mobileimage{mTrainings2.png}{Нижня частина каталогу}
 
 \evidencehead{Силове тренування}{desktop}
-\deskimage{Desktop/dStrength1.png}{Заголовок, ілюстрація та інформація про заняття}
-\deskimage{Desktop/dStrength2.png}{Програма заняття, необхідні речі та розклад}
+\deskimage{dStrength1.png}{Заголовок, ілюстрація та інформація про заняття}
+\deskimage{dStrength2.png}{Програма заняття, необхідні речі та розклад}
 \evidencehead{Силове тренування}{mobile}
-\noindent\mobileimage{Mobile/mStrength1.png}{Верхня частина}\hfill\mobileimage{Mobile/mStrength2.png}{Нижня частина}
+\noindent\mobileimage{mStrength1.png}{Верхня частина}\hfill\mobileimage{mStrength2.png}{Нижня частина}
 
 \evidencehead{Сторінка «Про нас»}{desktop}
-\deskimage{Desktop/dAbout1.png}{Опис спортивного залу та контактна інформація}
+\deskimage{dAbout1.png}{Опис спортивного залу та контактна інформація}
 \evidencehead{Сторінка «Про нас»}{mobile}
-\noindent\mobileimage{Mobile/mAbout1.png}{Вступ і опис}\hfill\mobileimage{Mobile/mAbout2.png}{Контакти та графік роботи}
+\noindent\mobileimage{mAbout1.png}{Вступ і опис}\hfill\mobileimage{mAbout2.png}{Контакти та графік роботи}
 
 \evidencehead{Форма запису}{desktop}
-\deskimage{Desktop/dSignup1.png}{Основні поля форми та навчальні пояснення}
-\deskimage{Desktop/dSignup2.png}{Нижня частина форми та кнопка перевірки}
+\deskimage{dSignup1.png}{Основні поля форми та навчальні пояснення}
+\deskimage{dSignup2.png}{Нижня частина форми та кнопка перевірки}
 \evidencehead{Форма запису}{mobile}
-\noindent\mobileimage{Mobile/mSignup1.png}{Поля для контактних даних}\hfill\mobileimage{Mobile/mSignup2.png}{Напрям тренувань, коментар і підтвердження}
+\noindent\mobileimage{mSignup1.png}{Поля для контактних даних}\hfill\mobileimage{mSignup2.png}{Напрям тренувань, коментар і підтвердження}
 
 \clearpage
 \section{Висновки}
