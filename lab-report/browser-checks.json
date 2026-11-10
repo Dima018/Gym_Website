@@ -1,0 +1,406 @@
+{
+  "date": "2026-11-10",
+  "results": [
+    {
+      "engine": "chromium",
+      "version": "156.0.8078.79",
+      "file": "index.html",
+      "width": 320,
+      "images": true,
+      "overflow": false,
+      "font": true,
+      "headings": 1
+    },
+    {
+      "engine": "chromium",
+      "version": "156.0.8078.79",
+      "file": "trainings.html",
+      "width": 320,
+      "images": true,
+      "overflow": false,
+      "font": true,
+      "headings": 1
+    },
+    {
+      "engine": "chromium",
+      "version": "156.0.8078.79",
+      "file": "strength-training.html",
+      "width": 320,
+      "images": true,
+      "overflow": false,
+      "font": true,
+      "headings": 1
+    },
+    {
+      "engine": "chromium",
+      "version": "156.0.8078.79",
+      "file": "about-gym.html",
+      "width": 320,
+      "images": true,
+      "overflow": false,
+      "font": true,
+      "headings": 1
+    },
+    {
+      "engine": "chromium",
+      "version": "156.0.8078.79",
+      "file": "training-signup.html",
+      "width": 320,
+      "images": true,
+      "overflow": false,
+      "font": true,
+      "headings": 1
+    },
+    {
+      "engine": "chromium",
+      "version": "156.0.8078.79",
+      "file": "index.html",
+      "width": 390,
+      "images": true,
+      "overflow": false,
+      "font": true,
+      "headings": 1
+    },
+    {
+      "engine": "chromium",
+      "version": "156.0.8078.79",
+      "file": "trainings.html",
+      "width": 390,
+      "images": true,
+      "overflow": false,
+      "font": true,
+      "headings": 1
+    },
+    {
+      "engine": "chromium",
+      "version": "156.0.8078.79",
+      "file": "strength-training.html",
+      "width": 390,
+      "images": true,
+      "overflow": false,
+      "font": true,
+      "headings": 1
+    },
+    {
+      "engine": "chromium",
+      "version": "156.0.8078.79",
+      "file": "about-gym.html",
+      "width": 390,
+      "images": true,
+      "overflow": false,
+      "font": true,
+      "headings": 1
+    },
+    {
+      "engine": "chromium",
+      "version": "156.0.8078.79",
+      "file": "training-signup.html",
+      "width": 390,
+      "images": true,
+      "overflow": false,
+      "font": true,
+      "headings": 1
+    },
+    {
+      "engine": "chromium",
+      "version": "156.0.8078.79",
+      "file": "index.html",
+      "width": 768,
+      "images": true,
+      "overflow": false,
+      "font": true,
+      "headings": 1
+    },
+    {
+      "engine": "chromium",
+      "version": "156.0.8078.79",
+      "file": "trainings.html",
+      "width": 768,
+      "images": true,
+      "overflow": false,
+      "font": true,
+      "headings": 1
+    },
+    {
+      "engine": "chromium",
+      "version": "156.0.8078.79",
+      "file": "strength-training.html",
+      "width": 768,
+      "images": true,
+      "overflow": false,
+      "font": true,
+      "headings": 1
+    },
+    {
+      "engine": "chromium",
+      "version": "156.0.8078.79",
+      "file": "about-gym.html",
+      "width": 768,
+      "images": true,
+      "overflow": false,
+      "font": true,
+      "headings": 1
+    },
+    {
+      "engine": "chromium",
+      "version": "156.0.8078.79",
+      "file": "training-signup.html",
+      "width": 768,
+      "images": true,
+      "overflow": false,
+      "font": true,
+      "headings": 1
+    },
+    {
+      "engine": "chromium",
+      "version": "156.0.8078.79",
+      "file": "index.html",
+      "width": 1440,
+      "images": true,
+      "overflow": false,
+      "font": true,
+      "headings": 1
+    },
+    {
+      "engine": "chromium",
+      "version": "156.0.8078.79",
+      "file": "trainings.html",
+      "width": 1440,
+      "images": true,
+      "overflow": false,
+      "font": true,
+      "headings": 1
+    },
+    {
+      "engine": "chromium",
+      "version": "156.0.8078.79",
+      "file": "strength-training.html",
+      "width": 1440,
+      "images": true,
+      "overflow": false,
+      "font": true,
+      "headings": 1
+    },
+    {
+      "engine": "chromium",
+      "version": "156.0.8078.79",
+      "file": "about-gym.html",
+      "width": 1440,
+      "images": true,
+      "overflow": false,
+      "font": true,
+      "headings": 1
+    },
+    {
+      "engine": "chromium",
+      "version": "156.0.8078.79",
+      "file": "training-signup.html",
+      "width": 1440,
+      "images": true,
+      "overflow": false,
+      "font": true,
+      "headings": 1
+    },
+    {
+      "engine": "firefox",
+      "version": "159.0",
+      "file": "index.html",
+      "width": 320,
+      "images": true,
+      "overflow": false,
+      "font": true,
+      "headings": 1
+    },
+    {
+      "engine": "firefox",
+      "version": "159.0",
+      "file": "trainings.html",
+      "width": 320,
+      "images": true,
+      "overflow": false,
+      "font": true,
+      "headings": 1
+    },
+    {
+      "engine": "firefox",
+      "version": "159.0",
+      "file": "strength-training.html",
+      "width": 320,
+      "images": true,
+      "overflow": false,
+      "font": true,
+      "headings": 1
+    },
+    {
+      "engine": "firefox",
+      "version": "159.0",
+      "file": "about-gym.html",
+      "width": 320,
+      "images": true,
+      "overflow": false,
+      "font": true,
+      "headings": 1
+    },
+    {
+      "engine": "firefox",
+      "version": "159.0",
+      "file": "training-signup.html",
+      "width": 320,
+      "images": true,
+      "overflow": false,
+      "font": true,
+      "headings": 1
+    },
+    {
+      "engine": "firefox",
+      "version": "159.0",
+      "file": "index.html",
+      "width": 390,
+      "images": true,
+      "overflow": false,
+      "font": true,
+      "headings": 1
+    },
+    {
+      "engine": "firefox",
+      "version": "159.0",
+      "file": "trainings.html",
+      "width": 390,
+      "images": true,
+      "overflow": false,
+      "font": true,
+      "headings": 1
+    },
+    {
+      "engine": "firefox",
+      "version": "159.0",
+      "file": "strength-training.html",
+      "width": 390,
+      "images": true,
+      "overflow": false,
+      "font": true,
+      "headings": 1
+    },
+    {
+      "engine": "firefox",
+      "version": "159.0",
+      "file": "about-gym.html",
+      "width": 390,
+      "images": true,
+      "overflow": false,
+      "font": true,
+      "headings": 1
+    },
+    {
+      "engine": "firefox",
+      "version": "159.0",
+      "file": "training-signup.html",
+      "width": 390,
+      "images": true,
+      "overflow": false,
+      "font": true,
+      "headings": 1
+    },
+    {
+      "engine": "firefox",
+      "version": "159.0",
+      "file": "index.html",
+      "width": 768,
+      "images": true,
+      "overflow": false,
+      "font": true,
+      "headings": 1
+    },
+    {
+      "engine": "firefox",
+      "version": "159.0",
+      "file": "trainings.html",
+      "width": 768,
+      "images": true,
+      "overflow": false,
+      "font": true,
+      "headings": 1
+    },
+    {
+      "engine": "firefox",
+      "version": "159.0",
+      "file": "strength-training.html",
+      "width": 768,
+      "images": true,
+      "overflow": false,
+      "font": true,
+      "headings": 1
+    },
+    {
+      "engine": "firefox",
+      "version": "159.0",
+      "file": "about-gym.html",
+      "width": 768,
+      "images": true,
+      "overflow": false,
+      "font": true,
+      "headings": 1
+    },
+    {
+      "engine": "firefox",
+      "version": "159.0",
+      "file": "training-signup.html",
+      "width": 768,
+      "images": true,
+      "overflow": false,
+      "font": true,
+      "headings": 1
+    },
+    {
+      "engine": "firefox",
+      "version": "159.0",
+      "file": "index.html",
+      "width": 1440,
+      "images": true,
+      "overflow": false,
+      "font": true,
+      "headings": 1
+    },
+    {
+      "engine": "firefox",
+      "version": "159.0",
+      "file": "trainings.html",
+      "width": 1440,
+      "images": true,
+      "overflow": false,
+      "font": true,
+      "headings": 1
+    },
+    {
+      "engine": "firefox",
+      "version": "159.0",
+      "file": "strength-training.html",
+      "width": 1440,
+      "images": true,
+      "overflow": false,
+      "font": true,
+      "headings": 1
+    },
+    {
+      "engine": "firefox",
+      "version": "159.0",
+      "file": "about-gym.html",
+      "width": 1440,
+      "images": true,
+      "overflow": false,
+      "font": true,
+      "headings": 1
+    },
+    {
+      "engine": "firefox",
+      "version": "159.0",
+      "file": "training-signup.html",
+      "width": 1440,
+      "images": true,
+      "overflow": false,
+      "font": true,
+      "headings": 1
+    }
+  ],
+  "form": "Empty and malformed phone rejected; valid inputs accepted and result shown in both browsers at all four widths."
+}

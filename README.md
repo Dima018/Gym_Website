@@ -48,3 +48,10 @@ python -m http.server 8000
 ## Авторство
 
 Автор: **Суворов Дмитро** — [GitHub @Dima018](https://github.com/Dima018).
+
+## Матеріали перевірки
+
+- `lab-report/page-wireframes.html` — ескізи п’яти сторінок для desktop/mobile.
+- `lab-report/W3Check/` — скриншоти HTML/CSS-валідації та XML повторної перевірки фінального CSS (0 помилок, 0 попереджень).
+- `lab-report/browser-checks.json` — результати 40 перевірок у Chromium та Firefox на ширинах 320, 390, 768 і 1440 px; також перевірено форму.
+- `assets/dejavu-sans.woff2`, `assets/dejavu-sans-bold.woff2` — локальні шрифти; ліцензія у `assets/font-license.txt`.

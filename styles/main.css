@@ -1,3 +1,19 @@
+@font-face {
+  font-family: "DejaVu Sans";
+  src: url("../assets/dejavu-sans.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "DejaVu Sans";
+  src: url("../assets/dejavu-sans-bold.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
 /* Спільні стилі для всіх сторінок. */
 * {
   box-sizing: border-box;
@@ -7,7 +23,7 @@ body {
   margin: 0;
   background: #f8f9f5;
   color: #23362b;
-  font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  font-family: "DejaVu Sans", Arial, sans-serif;
   line-height: 1.65;
 }
 
