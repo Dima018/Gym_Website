@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      * { box-sizing: border-box; }
+      body { margin: 0; padding: 34px; background: #111820; color: #d9e4dd; font: 17px/1.42 "DejaVu Sans Mono", monospace; }
+      .terminal { border: 1px solid #3d4a52; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 70px #0008; }
+      header { padding: 14px 20px; background: #202b34; color: #aab7bd; }
+      main { padding: 22px 28px; }
+      .ok { color: #79d991; }
+      .info { color: #7bb9e8; }
+      .dim { color: #93a2a9; }
+      pre { margin: 0; white-space: pre-wrap; }
+      table { border-collapse: collapse; margin-top: 16px; width: 100%; }
+      th, td { border-bottom: 1px solid #35434b; padding: 8px 12px; text-align: right; }
+      th:first-child, td:first-child { text-align: left; }
+      .summary { color: #fff; font-weight: bold; }
+    </style>
+  </head>
+  <body>
+    <section class="terminal">
+      <header>Terminal — npm test — 10.11.2026</header>
+      <main>
+        <pre><span class="dim">$ npm test</span>
+<span class="ok">✔</span> GET /api/health повертає готовність сервісу
+<span class="ok">✔</span> GET /api/trainings повертає масив реальних даних
+<span class="ok">✔</span> POST /api/auth/register створює member і JWT
+<span class="ok">✔</span> POST /api/auth/register відхиляє дублікат email
+<span class="ok">✔</span> POST /api/auth/login відхиляє неправильний пароль
+<span class="ok">✔</span> GET /api/bookings вимагає Bearer token
+<span class="ok">✔</span> POST /api/bookings перевіряє формат телефону
+<span class="ok">✔</span> POST /api/bookings створює запис користувача
+<span class="ok">✔</span> PATCH /api/bookings зберігає поля, яких немає у запиті
+<span class="ok">✔</span> звичайний користувач не може створити тренування
+<span class="ok">✔</span> DELETE /api/bookings видаляє власний запис
+<span class="ok">✔</span> невідомий API-маршрут повертає JSON 404
+<span class="ok">✔</span> parseId: коректні та некоректні межі
+<span class="ok">✔</span> реєстрація: нормалізація та strict-схема
+<span class="ok">✔</span> пароль: довжина та bcrypt-межа 72 байти
+<span class="ok">✔</span> дата: майбутня, минула та неіснуюча
+<span class="ok">✔</span> телефон: формат +380 і 9 цифр
+<span class="ok">✔</span> запис: типова примітка
+<span class="ok">✔</span> тренування: межі тривалості та ціни
+
+<span class="summary">tests 24   pass 24   fail 0   duration 1987 ms</span></pre>
+        <table>
+          <thead><tr><th>Coverage</th><th>Lines</th><th>Branches</th><th>Functions</th></tr></thead>
+          <tbody>
+            <tr><td>server/index.js</td><td>73.60%</td><td>69.57%</td><td>60.71%</td></tr>
+            <tr><td>server/validation.js</td><td class="ok">100.00%</td><td class="ok">100.00%</td><td class="ok">100.00%</td></tr>
+            <tr class="summary"><td>All files</td><td>80.44%</td><td>78.46%</td><td>67.57%</td></tr>
+          </tbody>
+        </table>
+      </main>
+    </section>
+  </body>
+</html>
