@@ -3,11 +3,17 @@
 % Компіляція: xelatex -interaction=nonstopmode -halt-on-error report.tex (двічі)
 % Скріншоти зберігаються у page-screenshots/Desktop та page-screenshots/Mobile.
 \documentclass[12pt,a4paper]{article}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T2A]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else
+  \usepackage{fontspec}
+  \setmainfont{Liberation Serif}
+  \setsansfont{Noto Sans}
+  \setmonofont{DejaVu Sans Mono}[Scale=0.84]
+\fi
 \usepackage[ukrainian]{babel}
-\usepackage{fontspec}
-\setmainfont{Liberation Serif}
-\setsansfont{Noto Sans}
-\setmonofont{DejaVu Sans Mono}[Scale=0.84]
 \usepackage[a4paper,left=23mm,right=22mm,top=23mm,bottom=24mm]{geometry}
 \usepackage{microtype}
 \usepackage{setspace}
@@ -17,7 +23,7 @@
 \usepackage{array,longtable,tabularx,booktabs}
 \usepackage{enumitem}
 \usepackage{xcolor}
-\usepackage[most]{tcolorbox}
+\usepackage{tcolorbox}
 \usepackage{tikz}
 \usepackage{float}
 \usepackage{caption}
@@ -43,7 +49,7 @@
 \titleformat{\subsection}{\large\sffamily\bfseries\color{forest}}{\thesubsection.}{0.6em}{}
 \titlespacing*{\section}{0pt}{15pt}{9pt}
 \titlespacing*{\subsection}{0pt}{12pt}{6pt}
-\captionsetup{font=small,labelfont={bf,color=forest},justification=centering}
+\captionsetup{hypcap=false,font=small,labelfont={bf,color=forest},justification=centering}
 \setlist[itemize]{leftmargin=1.45em,itemsep=2pt,topsep=4pt}
 \setlist[enumerate]{leftmargin=1.55em,itemsep=2pt,topsep=4pt}
 \renewcommand{\arraystretch}{1.20}
@@ -59,7 +65,7 @@
 \newtcolorbox{infobox}{colback=mist,colframe=rulegray,boxrule=0.5pt,arc=2mm,left=3mm,right=3mm,top=2mm,bottom=2mm}
 \newcommand{\file}[1]{\texttt{#1}}
 \newcommand{\evidencehead}[2]{%
-  \clearpage\subsection*{#1 --- #2}\addcontentsline{toc}{subsection}{#1 --- #2}
+  \clearpage\subsection*{#1 --- #2}\phantomsection\addcontentsline{toc}{subsection}{#1 --- #2}
 }
 \newcommand{\deskimage}[2]{%
  \begin{center}\includegraphics[width=\linewidth,height=10.1cm,keepaspectratio]{page-screenshots/#1}\par\vspace{2pt}{\footnotesize\color{sage} #2}\end{center}
@@ -118,7 +124,7 @@
 \end{enumerate}
 
 \section{Авторство та організація роботи}
-\noindent\begin{tabularx}{\textwidth}{>{\bfseries}p{38mm}X}
+\noindent\begin{tabularx}{\textwidth}{>{\RaggedRight\arraybackslash\bfseries}p{38mm}X}
 \toprule
 Виконавець & \AuthorName\\
 Профіль GitHub & \href{https://github.com/Dima018}{github.com/Dima018}\\
@@ -172,7 +178,7 @@ assets/logo.png & Логотип спортзалу «Ритм»\\
 \begin{table}[H]
 \centering
 \caption{Ключові прийоми стилізації}\label{tab:css}
-\noindent\begin{tabularx}{\textwidth}{>{\bfseries}p{40mm}X}
+\noindent\begin{tabularx}{\textwidth}{>{\RaggedRight\arraybackslash\bfseries}p{40mm}X}
 \toprule
 Прийом & Застосування\\
 \midrule
@@ -197,7 +203,7 @@ Media queries & Зміна компонування на ширинах 900 і 6
 \section{Перевірка результатів}
 Для фінальної версії виконано локальну перевірку верстки в Chromium на ширинах 320, 390, 768 та 1440 пікселів. Сторінки відкривалися через локальний HTTP-сервер; перевірено завантаження зображень і відносні шляхи до ресурсів. Для 20 перевірених варіантів не виявлено горизонтального переповнення, а всі ілюстрації завантажилися. Кожна сторінка має один заголовок \file{h1}. Скріншоти фінальної версії демонструють компонування елементів на настільному та мобільному екранах.
 
-\noindent\begin{tabularx}{\textwidth}{>{\bfseries}p{48mm}X}
+\noindent\begin{tabularx}{\textwidth}{>{\RaggedRight\arraybackslash\bfseries}p{48mm}X}
 \toprule
 Перевірка & Результат / обмеження\\
 \midrule
@@ -214,33 +220,33 @@ W3C HTML/CSS & Офіційний результат валідаторів не
 Нижче наведено скриншоти фінальної версії сайту з логотипом, зроблені в Chromium на настільних і мобільних розмірах екрана. Зображення взято з папки \file{page-screenshots}. Кожна сторінка представлена обома варіантами відображення.
 
 \evidencehead{Головна сторінка}{desktop}
-\deskimage{Desktop/Головна1.png}{Верхня частина: навігація, вступний блок, ілюстрація}
-\deskimage{Desktop/Головна2.png}{Нижня частина: переваги, інформаційний банер, підвал}
+\deskimage{Desktop/dHome1.png}{Верхня частина: навігація, вступний блок, ілюстрація}
+\deskimage{Desktop/dHome2.png}{Нижня частина: переваги, інформаційний банер, підвал}
 \evidencehead{Головна сторінка}{mobile}
-\noindent\mobileimage{Mobile/Головна1.png}{Верхня частина}\hfill\mobileimage{Mobile/Головна2.png}{Нижня частина}
+\noindent\mobileimage{Mobile/mHome1.png}{Верхня частина}\hfill\mobileimage{Mobile/mHome2.png}{Нижня частина}
 
 \evidencehead{Каталог тренувань}{desktop}
-\deskimage{Desktop/Тренування1.png}{Перші картки каталогу}
-\deskimage{Desktop/Тренування2.png}{Другий ряд карток: бокс, стретчинг та персональне тренування}
+\deskimage{Desktop/dTrainings1.png}{Перші картки каталогу}
+\deskimage{Desktop/dTrainings2.png}{Другий ряд карток: бокс, стретчинг та персональне тренування}
 \evidencehead{Каталог тренувань}{mobile}
-\noindent\mobileimage{Mobile/Тренування1.png}{Верхня частина каталогу}\hfill\mobileimage{Mobile/Тренування2.png}{Нижня частина каталогу}
+\noindent\mobileimage{Mobile/mTrainings1.png}{Верхня частина каталогу}\hfill\mobileimage{Mobile/mTrainings2.png}{Нижня частина каталогу}
 
 \evidencehead{Силове тренування}{desktop}
-\deskimage{Desktop/Силове_тренування1.png}{Заголовок, ілюстрація та інформація про заняття}
-\deskimage{Desktop/Силове_тренування2.png}{Програма заняття, необхідні речі та розклад}
+\deskimage{Desktop/dStrength1.png}{Заголовок, ілюстрація та інформація про заняття}
+\deskimage{Desktop/dStrength2.png}{Програма заняття, необхідні речі та розклад}
 \evidencehead{Силове тренування}{mobile}
-\noindent\mobileimage{Mobile/Силове_тренування1.png}{Верхня частина}\hfill\mobileimage{Mobile/Силове_тренування2.png}{Нижня частина}
+\noindent\mobileimage{Mobile/mStrength1.png}{Верхня частина}\hfill\mobileimage{Mobile/mStrength2.png}{Нижня частина}
 
 \evidencehead{Сторінка «Про нас»}{desktop}
-\deskimage{Desktop/Про_нас1.png}{Опис спортивного залу та контактна інформація}
+\deskimage{Desktop/dAbout1.png}{Опис спортивного залу та контактна інформація}
 \evidencehead{Сторінка «Про нас»}{mobile}
-\noindent\mobileimage{Mobile/Про_нас1.png}{Вступ і опис}\hfill\mobileimage{Mobile/Про_нас2.png}{Контакти та графік роботи}
+\noindent\mobileimage{Mobile/mAbout1.png}{Вступ і опис}\hfill\mobileimage{Mobile/mAbout2.png}{Контакти та графік роботи}
 
 \evidencehead{Форма запису}{desktop}
-\deskimage{Desktop/Запис1.png}{Основні поля форми та навчальні пояснення}
-\deskimage{Desktop/Запис2.png}{Нижня частина форми та кнопка перевірки}
+\deskimage{Desktop/dSignup1.png}{Основні поля форми та навчальні пояснення}
+\deskimage{Desktop/dSignup2.png}{Нижня частина форми та кнопка перевірки}
 \evidencehead{Форма запису}{mobile}
-\noindent\mobileimage{Mobile/Запис1.png}{Поля для контактних даних}\hfill\mobileimage{Mobile/Запис2.png}{Напрям тренувань, коментар і підтвердження}
+\noindent\mobileimage{Mobile/mSignup1.png}{Поля для контактних даних}\hfill\mobileimage{Mobile/mSignup2.png}{Напрям тренувань, коментар і підтвердження}
 
 \clearpage
 \section{Висновки}
