@@ -7,11 +7,20 @@ import { z } from "zod";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { query, pool } from "./db.js";
+import {
+  bookingSchema,
+  fail,
+  loginSchema,
+  parse,
+  parseId as id,
+  registerSchema,
+  trainingSchema,
+} from "./validation.js";
 
 const secret = process.env.JWT_SECRET;
 if (!secret || secret.length < 32 || !process.env.DATABASE_URL)
   throw new Error("Run npm run setup and configure .env");
-const app = express();
+export const app = express();
 app.disable("x-powered-by");
 app.use(
   helmet({
@@ -25,88 +34,12 @@ app.use("/api", (_req, res, next) => {
   res.set("Cache-Control", "no-store");
   next();
 });
-const fail = (status, message) => Object.assign(new Error(message), { status });
-const id = (value) => {
-  const n = Number(value);
-  if (
-    !/^\d+$/.test(String(value)) ||
-    !Number.isSafeInteger(n) ||
-    n < 1 ||
-    n > 2147483647
-  )
-    throw fail(400, "Некоректний ідентифікатор.");
-  return n;
-};
 const cleanUser = (u) => ({
   id: u.id,
   name: u.name,
   email: u.email,
   role: u.role,
 });
-const email = z.string().trim().toLowerCase().email().max(254);
-const password = z
-  .string()
-  .min(12)
-  .refine(
-    (v) => Buffer.byteLength(v) <= 72,
-    "Пароль має містити не більше 72 байтів.",
-  );
-const registerSchema = z
-  .object({ name: z.string().trim().min(2).max(80), email, password })
-  .strict();
-const loginSchema = z
-  .object({ email, password: z.string().min(1).max(100) })
-  .strict();
-const trainingSchema = z
-  .object({
-    category_id: z.number().int().positive().max(2147483647),
-    name: z.string().trim().min(2).max(100),
-    description: z.string().trim().min(10).max(2000),
-    duration_minutes: z.number().int().min(15).max(240),
-    price_cents: z.number().int().min(0).max(1000000),
-    image: z.enum([
-      "strength.png",
-      "cardio.png",
-      "yoga.png",
-      "boxing.png",
-      "stretch.png",
-      "personal.png",
-    ]),
-  })
-  .strict();
-const date = z
-  .string()
-  .regex(/^\d{4}-\d{2}-\d{2}$/)
-  .refine((v) => {
-    const d = new Date(v + "T00:00:00Z");
-    return !isNaN(d) && d.toISOString().slice(0, 10) === v;
-  }, "Некоректна дата.")
-  .refine((v) => {
-    const today = new Date().toISOString().slice(0, 10);
-    const end = new Date();
-    end.setUTCFullYear(end.getUTCFullYear() + 1);
-    return v >= today && v <= end.toISOString().slice(0, 10);
-  }, "Оберіть дату від сьогодні до року вперед.");
-const bookingSchema = z
-  .object({
-    training_id: z.number().int().positive().max(2147483647),
-    session_date: date,
-    phone: z.string().regex(/^\+380[0-9]{9}$/),
-    note: z.string().trim().max(300).default(""),
-  })
-  .strict();
-function parse(schema, body) {
-  const result = schema.safeParse(body);
-  if (!result.success) {
-    const e = fail(400, "Перевірте заповнення полів.");
-    e.fields = result.error.issues.map((i) => ({
-      field: i.path.join("."),
-      message: i.message,
-    }));
-    throw e;
-  }
-  return result.data;
-}
 async function auth(req, _res, next) {
   const token = req.get("Authorization")?.match(/^Bearer (.+)$/)?.[1];
   if (!token) throw fail(401, "Увійдіть до облікового запису.");
@@ -352,13 +285,19 @@ app.use((err, _req, res, _next) => {
       error: { message, ...(err.fields ? { fields: err.fields } : {}) },
     });
 });
-await query("SELECT 1");
-const server = app.listen(
-  Number(process.env.PORT || 3000),
-  process.env.HOST || "127.0.0.1",
-  () => console.log(`Ritm: http://localhost:${process.env.PORT || 3000}`),
-);
-for (const signal of ["SIGINT", "SIGTERM"])
-  process.on(signal, () =>
-    server.close(() => pool.end().then(() => process.exit(0))),
+export async function startServer() {
+  await query("SELECT 1");
+  const server = app.listen(
+    Number(process.env.PORT || 3000),
+    process.env.HOST || "127.0.0.1",
+    () => console.log(`Ritm: http://localhost:${process.env.PORT || 3000}`),
   );
+  for (const signal of ["SIGINT", "SIGTERM"])
+    process.once(signal, () =>
+      server.close(() => pool.end().then(() => process.exit(0))),
+    );
+  return server;
+}
+
+if (fileURLToPath(import.meta.url) === path.resolve(process.argv[1]))
+  await startServer();

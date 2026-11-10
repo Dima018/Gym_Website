@@ -1,6 +1,6 @@
 {
   "name": "ritm-gym",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "private": true,
   "type": "module",
   "engines": {
@@ -10,15 +10,21 @@
     "setup": "node scripts/setup.js",
     "start": "node --env-file=.env server/index.js",
     "dev": "node --env-file=.env --watch server/index.js",
-    "db:init": "node --env-file=.env scripts/init-db.js"
+    "db:init": "node --env-file=.env scripts/init-db.js",
+    "test": "node --env-file=.env --test --test-reporter=spec --experimental-test-coverage tests/**/*.test.js",
+    "test:unit": "node --env-file=.env --test --test-reporter=spec tests/unit/*.test.js",
+    "test:api": "node --env-file=.env --test --test-reporter=spec tests/api/*.test.js"
   },
   "dependencies": {
-    "express": "^5.1.0",
-    "pg": "^8.16.0",
     "bcryptjs": "^3.0.2",
-    "jsonwebtoken": "^9.0.2",
-    "zod": "^4.0.0",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.0.0",
     "helmet": "^8.1.0",
-    "express-rate-limit": "^8.0.0"
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.16.0",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "supertest": "^7.1.4"
   }
 }
