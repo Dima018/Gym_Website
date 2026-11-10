@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Суворов Дмитро" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta
+      content="Ритм — навчальний сайт спортзалу. Тренування, інформація про клуб і форма запису."
+      name="description"
+    />
+    <title>Особистий кабінет — Ритм</title>
+    <link href="styles/main.css" rel="stylesheet" />
+    <script type="module" src="scripts/app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Перейти до змісту</a>
+    <!-- Це меню повторюється на всіх сторінках. -->
+    <header>
+      <div class="container header-row">
+        <a class="logo" href="index.html" aria-label="Ритм — головна сторінка">
+          <img
+            src="assets/logo.png"
+            alt="Ритм — спортзал"
+            width="600"
+            height="171"
+          />
+        </a>
+        <nav aria-label="Головна навігація">
+          <a href="index.html">Головна</a>
+          <a href="trainings.html">Тренування</a>
+          <a href="strength-training.html">Деталі тренування</a>
+          <a href="about-gym.html">Про нас</a>
+          <a href="training-signup.html">Записатися</a>
+          <a aria-current="page" href="account.html">Кабінет</a>
+        </nav>
+      </div>
+    </header>
+    <main class="container" id="main">
+      <section>
+        <p class="eyebrow">МІЙ РИТМ</p>
+        <h1>Особистий кабінет</h1>
+        <p id="status" role="status" aria-live="polite"></p>
+        <div id="auth-forms" class="two-columns">
+          <form id="login-form" class="card">
+            <h2>Вхід</h2>
+            <label for="login-email">Електронна пошта</label
+            ><input
+              id="login-email"
+              name="email"
+              type="email"
+              autocomplete="username"
+              required
+            /><label for="login-password">Пароль</label
+            ><input
+              id="login-password"
+              name="password"
+              type="password"
+              autocomplete="current-password"
+              required
+            /><button class="button">Увійти</button>
+          </form>
+          <form id="register-form" class="card">
+            <h2>Реєстрація</h2>
+            <label for="register-name">Ім’я</label
+            ><input
+              id="register-name"
+              name="name"
+              minlength="2"
+              maxlength="80"
+              autocomplete="name"
+              required
+            /><label for="register-email">Електронна пошта</label
+            ><input
+              id="register-email"
+              name="email"
+              type="email"
+              maxlength="254"
+              autocomplete="username"
+              required
+            /><label for="register-password">Пароль (від 12 символів)</label
+            ><input
+              id="register-password"
+              name="password"
+              type="password"
+              minlength="12"
+              maxlength="72"
+              autocomplete="new-password"
+              required
+            /><button class="button">Створити обліковий запис</button>
+          </form>
+        </div>
+        <section id="profile" hidden>
+          <div class="account-actions">
+            <p id="user-name"></p>
+            <a class="button" href="training-signup.html">Записатися</a
+            ><a id="admin-link" href="admin.html" hidden
+              >Керування тренуваннями</a
+            ><button id="logout" class="button secondary">Вийти</button>
+          </div>
+          <h2>Мої записи</h2>
+          <div id="bookings" class="grid"></div>
+        </section>
+      </section>
+    </main>
+    <footer>
+      <div class="container footer-row">
+        <a class="logo" href="index.html" aria-label="Ритм — головна сторінка">
+          <img
+            src="assets/logo.png"
+            alt="Ритм — спортзал"
+            width="600"
+            height="171"
+          />
+        </a>
+        <p>Рухайся у своєму темпі.</p>
+        <p>Навчальний проєкт · 2026 · Усі дані клубу вигадані.</p>
+        <p class="site-author">
+          Автор:
+          <a href="https://github.com/Dima018" rel="noopener noreferrer"
+            >Суворов Дмитро</a
+          >
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

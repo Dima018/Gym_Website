@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Суворов Дмитро" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta
+      content="Ритм — навчальний сайт спортзалу. Тренування, інформація про клуб і форма запису."
+      name="description"
+    />
+    <title>Керування тренуваннями — Ритм</title>
+    <link href="styles/main.css" rel="stylesheet" />
+    <script type="module" src="scripts/app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Перейти до змісту</a>
+    <!-- Це меню повторюється на всіх сторінках. -->
+    <header>
+      <div class="container header-row">
+        <a class="logo" href="index.html" aria-label="Ритм — головна сторінка">
+          <img
+            src="assets/logo.png"
+            alt="Ритм — спортзал"
+            width="600"
+            height="171"
+          />
+        </a>
+        <nav aria-label="Головна навігація">
+          <a href="index.html">Головна</a>
+          <a href="trainings.html">Тренування</a>
+          <a href="strength-training.html">Деталі тренування</a>
+          <a href="about-gym.html">Про нас</a>
+          <a href="training-signup.html">Записатися</a>
+          <a href="account.html">Кабінет</a>
+        </nav>
+      </div>
+    </header>
+    <main class="container" id="main">
+      <section>
+        <p class="eyebrow">АДМІНІСТРАТОР</p>
+        <h1>Керування тренуваннями</h1>
+        <p id="status" role="status" aria-live="polite"></p>
+        <p id="admin-denied" hidden>
+          Потрібен обліковий запис адміністратора.
+          <a href="account.html">Увійти</a>
+        </p>
+        <div id="admin-content" hidden>
+          <div class="two-columns">
+            <form id="training-form" class="card">
+              <h2 id="editor-title">Нове тренування</h2>
+              <label for="title">Назва</label
+              ><input
+                id="title"
+                name="name"
+                minlength="2"
+                maxlength="100"
+                required
+              /><label for="description">Опис</label
+              ><textarea
+                id="description"
+                name="description"
+                minlength="10"
+                maxlength="2000"
+                required
+              ></textarea
+              ><label for="category">Категорія</label
+              ><select id="category" name="category_id" required></select
+              ><label for="duration">Тривалість, хв</label
+              ><input
+                id="duration"
+                name="duration_minutes"
+                type="number"
+                min="15"
+                max="240"
+                step="1"
+                required
+              /><label for="price">Ціна, грн</label
+              ><input
+                id="price"
+                name="price"
+                type="number"
+                min="0"
+                max="10000"
+                step="0.01"
+                required
+              /><label for="image">Ілюстрація</label
+              ><select id="image" name="image">
+                <option value="strength.png">Силове</option>
+                <option value="cardio.png">Кардіо</option>
+                <option value="yoga.png">Йога</option>
+                <option value="boxing.png">Бокс</option>
+                <option value="stretch.png">Стретчинг</option>
+                <option value="personal.png">Персональне</option></select
+              ><button class="button">Зберегти тренування</button
+              ><button id="reset-editor" type="button" class="button secondary">
+                Очистити форму
+              </button>
+            </form>
+            <div>
+              <h2>Каталог</h2>
+              <div id="admin-list"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="container footer-row">
+        <a class="logo" href="index.html" aria-label="Ритм — головна сторінка">
+          <img
+            src="assets/logo.png"
+            alt="Ритм — спортзал"
+            width="600"
+            height="171"
+          />
+        </a>
+        <p>Рухайся у своєму темпі.</p>
+        <p>Навчальний проєкт · 2026 · Усі дані клубу вигадані.</p>
+        <p class="site-author">
+          Автор:
+          <a href="https://github.com/Dima018" rel="noopener noreferrer"
+            >Суворов Дмитро</a
+          >
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>

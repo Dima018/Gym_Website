@@ -48,7 +48,9 @@ img {
   height: auto;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   line-height: 1.2;
 }
 
@@ -84,7 +86,8 @@ header {
   border-bottom: 1px solid #dce2d9;
 }
 
-.header-row, .footer-row {
+.header-row,
+.footer-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -118,7 +121,6 @@ footer .logo img {
   color: inherit;
 }
 
-
 nav {
   display: flex;
   gap: 18px;
@@ -131,7 +133,8 @@ nav a {
   font-size: 14px;
 }
 
-nav a:hover, nav a[aria-current="page"] {
+nav a:hover,
+nav a[aria-current="page"] {
   text-decoration: underline;
 }
 
@@ -172,7 +175,8 @@ nav a:hover, nav a[aria-current="page"] {
 }
 
 /* Дві колонки у великому блоці та на сторінці тренування. */
-.hero, .two-columns {
+.hero,
+.two-columns {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 48px;
@@ -273,7 +277,8 @@ address {
   overflow-wrap: anywhere;
 }
 
-.muted, small {
+.muted,
+small {
   color: #526054;
   font-size: 14px;
 }
@@ -295,7 +300,9 @@ label:first-child {
   margin-top: 0;
 }
 
-input, select, textarea {
+input,
+select,
+textarea {
   width: 100%;
   padding: 12px;
   border: 1px solid #84927f;
@@ -374,7 +381,8 @@ footer p {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .hero, .two-columns {
+  .hero,
+  .two-columns {
     gap: 24px;
   }
 
@@ -386,12 +394,13 @@ footer p {
     align-items: flex-start;
     flex-direction: column;
   }
-
 }
 
 /* На телефоні всі блоки йдуть один під одним. */
 @media (max-width: 600px) {
-  .grid, .hero, .two-columns {
+  .grid,
+  .hero,
+  .two-columns {
     grid-template-columns: 1fr;
   }
 
@@ -399,7 +408,8 @@ footer p {
     padding: 40px 0;
   }
 
-  h1, .hero h1 {
+  h1,
+  .hero h1 {
     font-size: 36px;
   }
 
@@ -421,7 +431,9 @@ footer p {
     gap: 8px;
   }
 
-  form, .card-body, .card {
+  form,
+  .card-body,
+  .card {
     padding: 22px;
   }
 
@@ -433,12 +445,58 @@ footer p {
     margin-left: 0;
     display: block;
   }
-
 }
 
 /* Авторство й компактний підвал у різних розмірах екрана. */
-.footer-row { flex-wrap: wrap; gap: 10px 20px; }
+.footer-row {
+  flex-wrap: wrap;
+  gap: 10px 20px;
+}
 @media (max-width: 360px) {
-  .logo img { width: 155px; }
-  .footer-row p { overflow-wrap: anywhere; }
+  .logo img {
+    width: 155px;
+  }
+  .footer-row p {
+    overflow-wrap: anywhere;
+  }
+}
+
+[hidden] {
+  display: none !important;
+}
+#status {
+  min-height: 1.7em;
+  padding: 8px 0;
+}
+#status.error {
+  color: #9a2525;
+}
+#status.success {
+  color: #235c35;
+}
+.account-actions,
+.card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+.secondary {
+  background: #e5ece3;
+  color: #233c30;
+}
+button:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+#category-filter {
+  max-width: 360px;
+  margin-bottom: 20px;
+}
+#admin-list .card {
+  margin-bottom: 16px;
+}
+.card-body p,
+#status {
+  overflow-wrap: anywhere;
 }
