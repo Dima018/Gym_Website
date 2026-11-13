@@ -6,19 +6,55 @@
 
 ## Швидкий запуск через Docker
 
-Потрібні Node.js 22+ та Docker із Compose. Виконайте у корені репозиторію:
+Для `make run` потрібні GNU Make, Node.js 22+ та Docker Desktop із Compose. Відкрийте термінал VS Code у папці `Gym_Website` (де знаходиться `Makefile`) і запустіть:
 
-```bash
+```powershell
+make run
+```
+
+За замовчуванням Makefile також запускає ціль `run`, тому працює і коротка команда:
+
+```powershell
+make
+```
+
+Якщо GNU Make ще не встановлений, у Windows його можна встановити командою:
+
+```powershell
+winget install --id GnuWin32.Make --exact
+```
+
+Після встановлення повністю закрийте й знову відкрийте VS Code, щоб термінал отримав оновлений `PATH`. Якщо `make` усе ще не розпізнається, додайте каталог GNU Make до `PATH` поточного термінала:
+
+```powershell
+$env:Path = "C:\Program Files (x86)\GnuWin32\bin;$env:Path"
+make --version
+```
+
+Ціль `run` встановлює залежності за потреби, створює `.env`, запускає Docker Desktop, чекає на готовність Docker Engine і PostgreSQL, ініціалізує базу та запускає сайт. Залиште термінал відкритим; сайт буде доступний за адресою **http://localhost:3000**. Для зупинки сервера натисніть `Ctrl+C`.
+
+Якщо GNU Make встановлювати не потрібно, запустіть той самий сценарій через PowerShell:
+
+```powershell
+npm run run
+```
+
+Із батьківської папки `Gym` спершу перейдіть до проєкту командою `cd .\Gym_Website`. У Makefile також є цілі `make db` (підготувати й запустити PostgreSQL), `make db-init` (ініціалізувати схему та початкові дані) і `make test` (запустити тести).
+
+Якщо потрібно виконати запуск вручну, у терміналі проєкту використовуйте:
+
+```powershell
 npm ci
 npm run setup
+docker desktop start
+docker info
 docker compose up -d --wait db
+docker compose ps
 npm run db:init
 npm start
 ```
 
-Відкрийте **http://localhost:3000**. Відкриття HTML як локального файлу вже не запускає серверну версію.
-
-Не закривайте термінал із `npm start`, доки перевіряєте сайт. Для зупинки сервера натисніть `Ctrl+C`.
+Переконайтеся, що `docker info` завершується без помилки, а `docker compose ps` показує стан бази `healthy`. Не запускайте `npm run db:init` або `npm start`, доки PostgreSQL не готовий. Відкриття HTML як локального файлу не запускає серверну версію.
 
 `npm run setup` створює `.env` із випадковими секретами та паролем адміністратора. Дані для входу admin: `ADMIN_EMAIL` і `ADMIN_PASSWORD` у цьому файлі. Звичайний користувач реєструється через `account.html`. Секрети не додаються до Git. `.env.example` описує змінні для ручного налаштування.
 
@@ -30,12 +66,13 @@ npm start
 docker compose ps
 ```
 
-Повторний запуск після першого налаштування:
+Повторний запуск після першого налаштування через Make:
 
-```bash
-docker compose up -d --wait db
-npm start
+```powershell
+make run
 ```
+
+Команда запуску сама перевіряє Docker Engine і чекає на готовність бази. Якщо запускаєте вручну, спершу переконайтеся, що `docker info` не показує помилку підключення, а `docker compose ps` показує стан бази `healthy`.
 
 Зупинка без видалення даних:
 
@@ -185,7 +222,8 @@ npm run db:init
 
 - `server/` — Express, маршрути, авторизація, валідація та PostgreSQL pool.
 - `database/` — SQL-схема і DBML для dbdiagram.io.
-- `scripts/app.js`, `scripts/api.js` — інтерфейс і Fetch; `setup.js`, `init-db.js` — локальне налаштування.
+- `Makefile` — цілі `run`, `db`, `db-init` і `test` для GNU Make.
+- `scripts/app.js`, `scripts/api.js` — інтерфейс і Fetch; `setup.js`, `init-db.js`, `run.ps1`, `wait-docker.ps1` — налаштування й запуск у Windows.
 - `docs/API.md` — методи, URL, приклади JSON, коди відповідей і порядок перевірки.
 - `docs/insomnia-collection.json` — імпортована колекція для ручних запитів без секретів.
 - `docs/DATABASE.md` — сутності, зв’язки та обґрунтування 3НФ.

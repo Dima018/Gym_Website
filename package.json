@@ -7,6 +7,7 @@
     "node": ">=22"
   },
   "scripts": {
+    "run": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File scripts/run.ps1",
     "setup": "node scripts/setup.js",
     "start": "node --env-file=.env server/index.js",
     "dev": "node --env-file=.env --watch server/index.js",
